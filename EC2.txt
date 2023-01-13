@@ -1,0 +1,14 @@
+provider "aws" {
+ access_key = "AKIA37JSNMU5WUC3VLKE"
+ secret_key = "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"
+ region = "us-east-1"
+}
+resource "aws_instance" "demo_instance" {
+  ami = "ami-08c40ec9ead489470"
+  count = 1
+  key_name = "jenkins_key"
+  instance_type = "t2.micro"
+  tags= {
+    Name = "New_instance"
+  }
+}
